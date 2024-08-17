@@ -1,0 +1,18 @@
+---
+
+import { authentication }  from "../middleware/auth";
+
+const user = authentication();
+
+if (!user) {
+    return new Response(null, {
+        status: 300,
+        headers: {
+            Location: "/login",
+        }
+    });
+}
+
+---
+
+<h1>Welcome logged in {user}</h1>
