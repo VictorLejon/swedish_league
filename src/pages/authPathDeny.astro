@@ -4,11 +4,11 @@ import { authentication }  from "../middleware/auth";
 
 const user = authentication();
 
-if (!user) {
+if (user) {
     return new Response(null, {
-        status: 300,
+        status: 302,
         headers: {
-            Location: "/login",
+            Location: "/",
         }
     });
 }
